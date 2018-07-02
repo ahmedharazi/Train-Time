@@ -17,7 +17,7 @@ var first = "";
 var frequency = "";
 
 // Capture Button Click
-$("#submit").on("clic k", function (event) {
+$("#submit").on("click", function (event) {
     event.preventDefault();
 
     train = $("#train").val().trim();
