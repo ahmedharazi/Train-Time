@@ -12,7 +12,7 @@ firebase.initializeApp(config);
 var database = firebase.database();
 
 var train = "";
-var Destination = "";
+var destination = "";
 var first = "";
 var frequency = "";
 
