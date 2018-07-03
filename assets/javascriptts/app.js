@@ -60,16 +60,36 @@ database.ref().on("child_added", function (childSnapshot) {
     frequency = childSnapshot.val().frequency;
 
 
+    var randomTime =  "00:00" ;
+    var randomFormat = "hh:mm";
+    var convertedTime = moment(randomTime, randomFormat);
+
+    
+    var newFrist = childSnapshot.val() ;
+
     var newtr = $("<tr>");
     var traintd = $("<td>").text(childSnapshot.val().train);
+
     var destinationtd = $("<td>").text(childSnapshot.val().destination);
-    var firsttd = $("<td>").text(moment(childSnapshot.val().first).format("MMM Do YYYY"));
-    var frequencytd = $("<td>").text(moment(childSnapshot.val().frequency).diff(moment(), "months") * -1);
+
+
+    var frequencytd = $("<td>").text(childSnapshot.val().frequency);
+    
+
+    var firsttd = $("<td>").text(moment(convertedTime).diff(moment(newFrist), "minutes"));
+
+   
+
+
+    var minutestd = $("<td>").text(moment(newFrist).add(frequency), "minuts");
+
+
 
     newtr.append(traintd);
     newtr.append(destinationtd);
-    newtr.append(firsttd);
     newtr.append(frequencytd);
+    newtr.append(firsttd);
+    newtr.append(minutestd);
 
 
 
