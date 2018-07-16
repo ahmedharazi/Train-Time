@@ -11,44 +11,49 @@ firebase.initializeApp(config);
 
 var database = firebase.database();
 
+// var trainName = "";
+// var destination = "";
+// var firstTrain = "";
+// var frequency = "";
 
-// Capture Button Click
-$("#submit").on("click", function (event) {
-    event.preventDefault();
+// Click
+$("#submit").on("click", function () {
+	// event.preventDefault(); // preventing from a default refresh
+
+	var trainName = $("#train").val().trim();
+	var destination = $("#destination").val().trim();
+	var firstTrain = $("#first").val().trim();
+	var frequency = $("#frequency").val().trim();
+
+	var newTrain = {
+		name: trainName,
+		destination: destination,
+		firstTrain: firstTrain,
+		frequency: frequency
+	};
+
+	database.ref().push(newTrain);
+
+	console.log(newTrain.name);
+	console.log(newTrain.destination);
+	console.log(newTrain.firstTrain);
+	console.log(newTrain.frequency);
 
 
+	alert("New train was added!");
 
-    var trainName = $("#train").val().trim();
-    var destination = $("#destination").val().trim();
-    var firstTrain = $("#first").val().trim();
-    var frequency = $("#frequency").val().trim();
+	// Clears the old user input
+	$('#train').val("");
+	$('#destination').val("");
+	$('#first').val("");
+	$('#frequency').val("");
 
-    var newTrain = {
-        name: trainName,
-        destination: destination,
-        firstTrain: firstTrain,
-        frequency: frequency
-    };
-
-    database.ref().push(newTrain);
-
-    console.log(newTrain.name);
-    console.log(newTrain.destination);
-    console.log(newTrain.firstTrain);
-    console.log(newTrain.frequency);
-
-
-    alert("New train was added!");
-
-    // Clears the old user input
-    $('#train').val("");
-    $('#destination').val("");
-    $('#first').val("");
-    $('#frequency').val("");
+	return false;
 });
 
 database.ref().on("child_added", function (childSnapshot) {
-    console.log(childSnapshot.val());
+
+	console.log(childSnapshot.val());
 
 	var snapName = childSnapshot.val().name;
 	var snapDestination = childSnapshot.val().destination;
@@ -66,7 +71,6 @@ database.ref().on("child_added", function (childSnapshot) {
 	if (maxMoment === trainTime) {
 		tArrival = trainTime.format("hh:mm A");
 		trainMinutes = trainTime.diff(moment(), "minutes");
-		
 	} else {
 
 		var differenceTimes = moment().diff(trainTime, "minutes");
