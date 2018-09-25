@@ -20,10 +20,10 @@ The main page
  ![image](./assets/images/pic1.png)
 
 Add a new train
-(assets/pic2.png)
+ ![image](./assets/images/pic2.png)
 
 Train has beed added
-![assets] (/assets/pic3.png)
+ ![image](./assets/images/pic3.png)
 
 Shown in the Trian Time panel
-![image] (/assets/pic4.png)
+ ![image](./assets/images/pic4.png)
