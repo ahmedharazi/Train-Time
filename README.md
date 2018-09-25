@@ -17,7 +17,7 @@ jQuery
 Firebase
 
 The main page
- (./assets/pic1.png)
+ ![image](./assets/images/pic1.png)
 
 Add a new train
 (assets/pic2.png)
