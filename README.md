@@ -17,13 +17,13 @@ jQuery
 Firebase
 
 The main page
-![image] (./assets/pic1.png)
+![image] (/assets/pic1.png)
 
 Add a new train
-![image] (./assets/pic1.png)
+![image] (/assets/pic1.png)
 
 Train has beed added
-![image] (./assets/pic1.png)
+![image] (/assets/pic1.png)
 
 Shown in the Trian Time panel
-![image] (./assets/pic1.png)
+![image] (/assets/pic1.png)
